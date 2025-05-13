@@ -1,0 +1,172 @@
+/* Basic Reset and Body Styles */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif; /* Default MUI font stack */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth; /* Enable smooth scrolling for parallax effect */
+  overflow-x: hidden; /* Prevent horizontal scroll and help with parallax effects */
+  perspective: 1px; /* Add perspective for 3D parallax effects */
+}
+
+body {
+  background-color: #f4f6f8; /* A light default background, MUI components will override */
+  color: #333; /* A default text color */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  background: linear-gradient(135deg, #f4f6f8, #fafafa); /* Subtle gradient background */
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%; /* Ensure root takes full width */
+  position: relative; /* For absolute positioning of elements inside */
+  overflow-x: hidden; /* Contains absolute positioned elements */
+}
+
+/* Enhanced Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#1976d2, #f50057);
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(#115293, #ab003c);
+}
+
+/* Basic link styling, MUI components will handle their own link styles */
+a {
+  color: #1976d2; /* MUI primary color */
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #f50057; /* Transition to secondary color on hover */
+  transform: translateY(-2px);
+}
+
+/* Global animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Enhanced animation keyframes for parallax effects */
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes floatX {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(15px); }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Apply animations to specific elements */
+.float-element {
+  animation: floatY 6s ease-in-out infinite;
+}
+
+.float-element-x {
+  animation: floatX 8s ease-in-out infinite;
+}
+
+.rotating-element {
+  animation: rotate 20s linear infinite;
+}
+
+/* Parallax ready containers */
+.parallax-container {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 8px;
+  perspective-origin: 0%;
+  position: relative;
+}
+
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.parallax-layer-back {
+  transform: translateZ(-8px) scale(2);
+}
+
+.parallax-layer-base {
+  transform: translateZ(0);
+}
+
+.parallax-layer-front {
+  transform: translateZ(4px) scale(0.5);
+}
+
+/* Global section padding */
+section {
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.5s ease;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 70px 0;
+  }
+}
+
+/* Reset box-sizing for all elements */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Text selection styles */
+::selection {
+  background: rgba(25, 118, 210, 0.3); /* Primary color with transparency */
+  color: #333;
+}
