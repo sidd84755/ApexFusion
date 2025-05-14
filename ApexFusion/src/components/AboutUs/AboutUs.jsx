@@ -60,7 +60,7 @@ const timelineData = [
 
 // Placeholder team data
 const teamData = [
-  { name: 'Alex Johnson', role: 'Founder & CEO' },
+  { name: 'Siddharath', role: 'Founder & CEO' },
   { name: 'Samantha Lee', role: 'CTO' },
   { name: 'Michael Chen', role: 'Lead Developer' },
   { name: 'Priya Sharma', role: 'UX Director' },
